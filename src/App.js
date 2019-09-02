@@ -1,11 +1,21 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Index from "./components/Index";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Lyric Finder App</h1>
-    </div>
+    <Router>
+      <>
+        <NavBar />
+        <div className="container">
+          <Switch>
+            <Route exact path="/" component={Index} />
+          </Switch>
+        </div>
+      </>
+    </Router>
   );
 }
 
