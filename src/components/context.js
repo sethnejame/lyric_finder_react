@@ -16,7 +16,6 @@ export class Provider extends Component {
         country=us&f_has_lyrics=1&apikey=${process.env.REACT_APP_MM_KEY}`
       )
       .then(res => {
-        //{console.log(res.data)}
         this.setState({ track_list: res.data.message.body.track_list });
       })
       .catch(err => console.log(err));
