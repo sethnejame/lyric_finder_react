@@ -1,3 +1,16 @@
+# Lyric Finder App @ React
+
+An exercise in using Context API. . .
+
+This tutorial was brought to you by Traversy Media.  It focuses on implementing Context API to enable the use of state globally rather than having to drill down through multiple components to access it.
+
+Lyric Search App With React & Context API (3 Parts)
+https://www.youtube.com/watch?v=NDEt0KdDbhk
+
+I followed this tutorial in order to learn about the implementation of Context API (building a context.js file w/ global state, wrapping components in <Consumer></Consumer> tags to access global state) and also for the practice at working with API calls to external data, working with that data and formatting/manipulating it so it is more easily consumed by the client.
+
+## About Create-React-App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
