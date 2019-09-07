@@ -11,7 +11,7 @@ class Search extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  findSong = e => {
+  findSong = (dispatch, e) => {
     e.preventDefault();
     axios
       .get(
@@ -19,6 +19,11 @@ class Search extends Component {
       )
       .then(res => {
         console.log(res.data);
+        dispatch({
+          type: "SEARCH_TRACKS",
+          payload: res.data.message.body.track_list
+        });
+        this.setState({ trackTitle: "" });
       })
       .catch(err => console.log(err));
   };
@@ -31,13 +36,14 @@ class Search extends Component {
             passed as a prop to the consumer component like this
             value={this.state} */}
         {value => {
+          const { dispatch } = value;
           return (
             <div className="card card-body mb-4 p-4">
               <h1 className="display-4 text-center">
                 <i className="fas fa-music"></i>Search For A Song
               </h1>
               <p className="lead text-center">Get the lyrics for any song</p>
-              <form onSubmit={this.findSong}>
+              <form onSubmit={this.findSong.bind(this, dispatch)}>
                 <div className="form-group">
                   <input
                     className="form-control form-control-lg"
@@ -48,13 +54,13 @@ class Search extends Component {
                     onChange={this.handleChange}
                   />
                 </div>
+                <button
+                  className="btn btn-primary btn-lg btn-block mb-5"
+                  type="submit"
+                >
+                  Find my song!
+                </button>
               </form>
-              <button
-                className="btn btn-primary btn-lg btn-block mb-5"
-                type="submit"
-              >
-                Find my song!
-              </button>
             </div>
           );
         }}
