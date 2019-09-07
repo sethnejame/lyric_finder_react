@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Consumer from "./context";
-import { classBody } from "@babel/types";
+import { Consumer } from "./context";
 
-class Search extends Component() {
+class Search extends Component {
   state = {
     trackTitle: ""
   };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
   render() {
     return (
       <Consumer>
@@ -21,6 +25,19 @@ class Search extends Component() {
                 <i className="fas fa-music"></i>Search For A Song
               </h1>
               <p className="lead text-center">Get the lyrics for any song</p>
+              <form>
+                <div className="form-group">
+                  <input
+                    className="form-control form-control-lg"
+                    type="text"
+                    placeholder="Enter a song title. . ."
+                    name="trackTitle"
+                    value={this.state.trackTitle}
+                    onChange={this.handleChange}
+                  />
+                </div>
+              </form>
+              <button className="btn btn-primary btn-lg btn-block mb-5" type="submit">Get Lyrics!</button>
             </div>
           );
         }}
