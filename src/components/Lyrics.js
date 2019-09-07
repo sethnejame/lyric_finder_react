@@ -65,6 +65,10 @@ class Lyrics extends Component {
               <strong>Explicit Words</strong>:{" "}
               {track.explicit === 0 ? "No" : "Yes"}
             </li>
+            <li className="list-group-item">
+              <strong>Release Date</strong>:{" "}
+              {track.first_release_date}
+            </li>
           </ul>
           <Link to="/" className="btn btn-dark btn-sm mb-4">
             Go Back
